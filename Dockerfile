@@ -179,6 +179,7 @@ RUN apt update && \
   libwebp6 \
   libtheora-bin \
   libopus0 \
+  libfdk-aac-dev \
   rtmpdump \
   libx264-dev \
   libx265-dev
@@ -186,7 +187,6 @@ RUN apt update && \
 COPY --from=build-nginx /usr/local/nginx /usr/local/nginx
 COPY --from=build-nginx /etc/nginx /etc/nginx
 COPY --from=build-ffmpeg /usr/local /usr/local
-COPY --from=build-ffmpeg /usr/lib/libfdk-aac.so.2 /usr/lib/libfdk-aac.so.2
 
 # Add NGINX path, config and static files.
 ENV PATH "${PATH}:/usr/local/nginx/sbin"
